@@ -1,0 +1,76 @@
+I see that feature importance does segregate some features as redundant. I see that this might be the
+case for this dataset but these features shouldn't be generally rejected. Finer categorical assignment
+of observations could make these features more important? I wander whether in the silica world some 
+features like the habitat are redundant because the model has already segregated the mushrooms due to 
+other features values. If indeed we know that it is a different mushroom before using the habitat feature,
+why use it? Inclusion of such features would definetely be relevant in case of expansion of the model for more 
+species. 
+
+
+K-nn classification 
+
+use both euclidian distance and NCA neighboorhood component analysis to see which works better for our
+classification program. Usaully NCA is recomended for multi-class problems. 
+
+Try-out different Ks and choose the best: https://www.geeksforgeeks.org/machine-learning/ml-implementation-of-knn-classifier-using-sklearn/
+KNN need one-hot encoding because simple numerical encoding will misslead the algo in assuming nominal
+categories for the features. This is not a problem with the Random Forest and Tree-based methods. 
+
+I did test Knn performance for k in (2,20) using the ball-tree algorith, and saw that it has better 
+performance than the defaults Knn for all the higher (>7) Ks which have accuracy sliglty below 1. This means that 
+it performs better for more complex structure of more Ks even in my small dataset. Took 7 min though for 20 Ks,
+while standard algo thou 70 sec. 
+
+--> If different Ks all give the same accuracy I should choose one that is as low as possible but not too low. It is better to have an even no of Ks to reduce
+chance of tie while calculating. Balance between bias-variance. 
+
+
+Despite performing a series of checks to see which features might be less important, during the current state of our project, eliminating features as non-predictive
+is not our goal. Knowing their importance though is desired. The reason is that we only work with a limited dataset and if we were to include more mushroom species
+different features could rise up as important. Mushroom characteristics don't connect with their edibility in any expected way (e.g. like normal distribution) so 
+we can never say that some characteristics are useless in the edibility class process. This could happen, possibly if we were to include a much larger number of 
+occurences of known species. 
+
+So any attemp to reduce variables will only be usefull if working with (species families) represented in the sample. Any any generalization of the model will only
+refer to classification of members of these families.  
+
+-> Higher K-values with lower accuract show us that simpler models probably work better. 
+
+Always do cross-validation only of the train dataset to avoid data leakage 
+
+
+
+Random Forest - Hyperparameter tuning 
+
+
+Minimum number of samples per leaf:
+The hyperparameter min_samples_leaf controls whether or not the tree should continue splitting 
+a given node based on the number of samples in that node. By default, min_samples_leaf = 1, so 
+each tree will split all the way down to a single sample, but in practice it can be useful to 
+work with values 3, 5, 10, 25 and see if the performance improves.
+
+
+Maximum number of features per split
+
+Another good hyperparameter to tune is max_features, which controls what random number or fraction 
+of columns we consider when making a single split at a tree node. Here, the motivation is that we
+might have situations where a few columns in our data are highly predictive, so each tree will be
+biased towards picking the same splits and thus reduce the generalisation power of our ensemble. 
+To counteract that, we can tune max_features, where good values to try are 1.0, 0.5, log2, or 
+sqrt.
+
+Feature importance: 
+In nearly every real-world dataset, this is what the feature importance looks like: a handful of
+columns are very important, while most are not. The powerful aspect of this approach is that is
+focuses our attention on which features we should investigate further and which ones we can 
+safely ignore.
+The feature importance analysis above can be biased and has a tendency to inflate the importance
+of continuous features or categorical features with high cardinality (i.e. many unique categories).
+See the Beware Default Random Forest Importances article in the references for more information. 
+
+
+Doing classic feature selection prior to analysis is not desired for this dataset. From my experience any characteristic can be key for 
+mushroom identification and thus edibility, so, removing features among a dataset of 23 features is maybe too much (?) 
+
+To see how well the model performes without some features I can try to do first the Random Forest and Based on that implement again kNN
+with feature selection. But straightforward feature selection for kNN seems to much. 
