@@ -1,0 +1,47 @@
+Things to do while solving this problem 
+
+1) Calculate complexities, time (DONE) and computer power needed for my problem 
+
+2) Do performance metrics for all cases and print them in graphics. 
+
+3) Understand where is fit to include missing values. (DONE) (works for random forest doesn't work for kNN.)
+
+4) Setting random state allows for reproducibility of results on which random processes are applied. 
+It is a good practise to declare a global variable for random state at the biggining and use it wherever needed. (DONE) 
+
+  
+
+5) I need to set the feature categories as numbers instead of dummies!  --> for random forest only. (DONE) 
+
+6) Measure the time needed to run each algo and print it out for a report. (Partially DONE)  
+
+
+--> 
+6a) Create functions to calculate everything with less typing. (DONE) 
+
+6b) Undestand which value 0 or 1 does my model classify as positive for the model (important for the recall measure) (DONE) --> poisonous is positive (1) 
+
+6c) Do k-folds cross-validation for each model (ALMOST DONE)
+
+6d) do both grid-search CV and bayesian CV for hyperparameter tuning
+    ! I see the the best model from RSCD selection process doesn't reach exactly 100% accuracy. I need to see what to do with that.
+
+7) Feature Importance:   (DONE for RF, is not compatible with kNN).  --> export the graphs (PENDING)
+
+7a)Drop features that have insignificant effect. See how much I can push the limit regarding model
+simplicity!!
+        --> Do this for ranfom forest, for kNN doesn't seem feasible with the same process. (DONE ... works well) 
+
+8) Data presentation: 
+
+    present for sure all models in a ROC plot and see if they pose any differences. (DONE for RF, DONE for knn)
+
+    Plot the train accuracy vs test accuracy for all the model analyzed. this is a measure of overfitting. (DONE for kNN, Done for RF (value only plot not needed))
+
+9) Read model evauation and tuning from geeks for geeks  
+    -> accuracy precision recall    (DONE for BOTH) 
+    -> ROC and AUC                  (DONE but why it looks like that?)
+
+10) Understand how to select the best k for kNN (mostly DONE) 
+
+11) Send email to Spyros regarding high scores / accuracies. 
