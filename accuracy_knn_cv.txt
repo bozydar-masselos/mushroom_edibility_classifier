@@ -1,4 +1,0 @@
-Accuracy for model by GSCV: 1.0
-Best parameters: {'max_depth': 9, 'max_features': np.float64(0.4), 'max_samples': 0.8, 'n_estimators': np.int64(50)}
-Best CV score: 0.9138125047366426
-Execution time: 131.9238 sec

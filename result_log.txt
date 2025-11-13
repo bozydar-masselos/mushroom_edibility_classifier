@@ -1,0 +1,46 @@
+ Second RF model
+Accuracy for model by GSCV: 1.0
+Accuracy for train data: 1.0
+Test data: Recall: 1.0 , Precision: 1.0
+Best parameters: {'max_depth': 7, 'max_features': np.float64(0.1), 'max_samples': 0.7, 'n_estimators': np.int64(50)}
+Best CV score: 1.0
+Execution time: 2.14903 sec
+
+RF classifier results after Feature selection based on importances
+MDI variables: Index(['cap-shape', 'cap-color', 'cap-surface', 'odor', 'bruises'], dtype='object')
+PERM variables: Index(['odor', 'spore-print-color', 'gill-size', 'habitat', 'bruises'], dtype='object')
+Score
+MDI: [0.99121265 0.99472296 0.99560246 0.99648197 0.99560246] 
+ PERM: [0.99912127 1.         1.         0.99736148 0.99824099]
+Mean accuracy Feature Reduction
+MDI: 0.9947 PERM: 0.9989
+Test Accuracy
+MDI: 0.9938 PERM: 0.9992
+Test Recall; MDI: 0.9873 PERM: 0.9983
+Precision; MDI: 1.0 PERM: 1.0
+Execution time: 0.5989 sec
+
+KNN model with CV
+K 	 training 	 test 	 C-V_mean_accuracy 	Precision 	Recall
+K = 2 : 100.00%		100.00%		100.00%		100.00%t	100.00%
+K = 3 : 100.00%		100.00%		100.00%		100.00%t	100.00%
+K = 4 : 100.00%		100.00%		100.00%		100.00%t	100.00%
+K = 5 : 100.00%		100.00%		100.00%		100.00%t	100.00%
+K = 6 : 100.00%		100.00%		100.00%		100.00%t	100.00%
+K = 7 : 100.00%		100.00%		100.00%		100.00%t	100.00%
+K = 8 : 99.98%		100.00%		100.00%		100.00%t	100.00%
+K = 9 : 99.98%		100.00%		100.00%		100.00%t	100.00%
+K = 10 : 99.98%		100.00%		99.99%		100.00%t	100.00%
+
+
+kNN model NCA CV
+Κ 	 Mean CV accuracy(train) 	Accuracy score(test) 	Precision 	Recall
+K = 2 : 100.000%		100.000%		100.000%		100.000%
+K = 3 : 100.000%		100.000%		100.000%		100.000%
+K = 4 : 99.965%		100.000%		100.000%		100.000%
+K = 5 : 99.965%		100.000%		100.000%		100.000%
+K = 6 : 99.930%		100.000%		100.000%		100.000%
+K = 7 : 99.965%		100.000%		100.000%		100.000%
+K = 8 : 99.930%		99.877%		100.000%		99.747%
+K = 9 : 99.965%		99.877%		100.000%		99.747%
+K = 10 : 99.965%		99.877%		100.000%		99.747%
